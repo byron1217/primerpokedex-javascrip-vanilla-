@@ -5,6 +5,8 @@
  const backBtn = document.getElementById("backBtn");
  const searchInput = document.getElementById("searchInput");
  const searchBtn = document.getElementById("searchBtn");
+ const traer = document.getElementById("traer");
+
  let query ="";
  //funcion que consulta la api de pokeapi
 async function fetchpokemonData(pokemonId){
@@ -28,7 +30,7 @@ function displayPokemon(pokemon){
     pokemonCard.innerHTML = `
     <h3 class="name">${pokemon.name}</h3>
     <h2 class="idNumber">${pokemon.id}</h2>
-    <img src=${pokemon.sprites.front_shiny} alt=${pokemon.name}">
+    <img src=${pokemon.sprites.front_shiny} alt=${pokemon.name}" class="imgClass">
     <h3>tipos del pokemon</h3>
     <p>${pokemon.moves[0].move.name}</p>
     `
@@ -58,7 +60,7 @@ ${pokemonTypes}
 }
 backBtn.addEventListener("click",()=>{
     pokemonDetail.style.display = "none"
-    pokemonList.style.display = "block"
+    pokemonList.style.display = "grid"
 })
 searchInput.addEventListener("input",(error)=>{
     query= error.target.value
